@@ -16,7 +16,7 @@ public class MarkdownParse {
 
             if((nextOpenBracket == -1) || (nextCloseBracket == -1)) {
                 break;
-            }
+            } 
 
             if(nextOpenBracket > 0) {
                 System.out.println(markdown.charAt(nextOpenBracket));
