@@ -6,11 +6,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarkdownParseTest {
-    @Test
-    public void addition() {
-        assertEquals(2, 1 + 1);
-    }
+public class MarkdownParseTest{
 
     // Test getLinks on the given test file
     @Test
@@ -79,9 +75,6 @@ public class MarkdownParseTest {
         Path file = Path.of("test-file4.md");
         String contents = Files.readString(file);
 
-        List<String> expected = List.of();
-        assertEquals(MarkdownParse.getLinks(contents), expected);
-    }
     @Test
     public void testFive() throws IOException {
         Path file = Path.of("test-file5.md");
@@ -111,15 +104,38 @@ public class MarkdownParseTest {
         Path file = Path.of("test-file8.md");
         String contents = Files.readString(file);
 
-        List<String> expected = List.of();
-        assertEquals(MarkdownParse.getLinks(contents), expected);
-    }
-    @Test
-    public void testOwnFive() throws IOException {
-        Path file = Path.of("test-file-5.md");
-        String contents = Files.readString(file);
+    //@Test
+    public void testGetLinksFour() throws IOException{
+        Path fileName = Path.of("test-file-four.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+    
+        List<String> expectedOutput = List.of("https://something.com", "some-page.html");
 
         List<String> expected = List.of("inside");
         assertEquals(MarkdownParse.getLinks(contents), expected);
+    }
+
+
+
+
+    //@Test
+    public void addition() {
+        assertEquals(2, 1 + 1);
+    }
+
+
+
+    
+
+    //@Test
+    public void testGetLinksFive() throws IOException{
+        Path fileName = Path.of("test-file-five.md");
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+    
+        List<String> expectedOutput = List.of("https://something.com", "some-page.html");
+
+        assertEquals(expectedOutput, links);
     }
 }
