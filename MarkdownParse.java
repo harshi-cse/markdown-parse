@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Stack;
+
+// add a random comment
 
 public class MarkdownParse {
     public static ArrayList<String> getLinks(String markdown) {
@@ -42,6 +45,7 @@ public class MarkdownParse {
                 currentIndex = markdownCheck;
             }
         }
+
         return toReturn;
     }
     public static void main(String[] args) throws IOException {
