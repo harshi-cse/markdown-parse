@@ -122,4 +122,33 @@ public class MarkdownParseTest {
         List<String> expected = List.of("inside");
         assertEquals(MarkdownParse.getLinks(contents), expected);
     }
+    // TESTS FOR LAB REPORT 4
+
+    // testing snippet 1
+
+    @Test
+    public void testSnippet1() throws IOException {
+        String contents = Files.readString(Path.of("./snippet-1.md"));
+        List<String> expect = List.of("`google.com", "google.com", "ucsd.edu");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
+
+    // testing snippet 2
+    @Test
+    public void testSnippet2() throws IOException {
+        String contents = Files.readString(Path.of("./snippet-2.md"));
+        List<String> expect = List.of("a.com", "a.com(())", "example.com");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
+
+    // testing snippet 3
+    @Test
+    public void testSnippet3() throws IOException {
+        String contents = Files.readString(Path.of("./snippet-3.md"));
+        List<String> expect = List.of("https://www.twitter.com",
+             "https://ucsd-cse15l-w22.github.io/", "https://cse.ucsd.edu/");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
+
 }
+   
